@@ -1,8 +1,11 @@
 .navbar {
   box-shadow: inset 0px 0px 400px 110px rgba(0, 0, 0, 0.6);
-  top: 0;
   height: 100px;
+  margin-bottom: 50px;
+}
+
+.navbar_container {
   display: flex;
   justify-content: center;
-  margin-bottom: 50px;
+  width: 100%;
 }

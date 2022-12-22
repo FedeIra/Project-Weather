@@ -1,17 +1,20 @@
-import React from "react";
-import SearchBar from "./SearchBar.jsx";
-import "../hoja-de-estilos/Nav.css";
+import React from 'react';
+import SearchBar from './SearchBar.jsx';
+import '../hoja-de-estilos/Nav.css';
 
 function Nav({ onSearch }) {
   return (
-    /*    <nav className="navbar navbar-dark bg-primary">
-      <SearchBar />
-    </nav> */
-    <nav className="navbar">
-      <div>
-        <SearchBar onSearch={onSearch} />
-      </div>
-    </nav>
+    <div>
+      <nav
+        className="navbar
+      fixed-top
+      "
+      >
+        <div className="navbar_container">
+          <SearchBar onSearch={onSearch} />
+        </div>
+      </nav>
+    </div>
   );
 }
 

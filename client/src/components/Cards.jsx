@@ -5,7 +5,12 @@ import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 
 function Cards({ cities, onClose, handleOnDragEnd }) {
   return (
-    <div className="allCards">
+    <div
+      className="allCards"
+      style={{
+        marginTop: '130px',
+      }}
+    >
       <DragDropContext onDragEnd={handleOnDragEnd}>
         <Droppable droppableId="cities_list">
           {(provided) => (
