@@ -1,0 +1,14 @@
+body {
+  background-image: url('./Assets/4.png');
+  /* different shades of black: */
+}
+
+@media screen and (max-width: 1000px) {
+  body {
+    background-size: cover;
+    background-position: center;
+  }
+}
+
+/* cover all in background color: */
+/* background color: rgb(29,29,29) to rgb(26,26,26): */
