@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../hoja-de-estilos/Card.css';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container, Row, Col, Modal } from 'react-bootstrap';
 import * as images from '../Assets/climate/climate_images.js';
+import DetailedCard from './DetailedCard.jsx';
 
 function Card({
   temp,
@@ -10,7 +11,6 @@ function Card({
   name,
   img,
   onClose,
-  handleOnDragEnd,
   humidity,
   lon,
   lat,
@@ -19,6 +19,26 @@ function Card({
   wind,
   pressure,
 }) {
+  const [detailed, setDetailed] = useState(false);
+  const [week, setWeek] = useState([]);
+  let apiKey = '4ae2636d8dfbdc3044bede63951a019b';
+
+  const handleClose = () => setDetailed(false);
+  const handleShow = () => setDetailed(true);
+
+  function searchWeek({ lon, lat }) {
+    fetch(
+      `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}`
+    )
+      .then((r) => r.json())
+      .then((recurso) => {
+        const detailedWeek = {
+          first_day: recurso.list[0].main.temp,
+        };
+        setWeek(detailedWeek);
+      });
+  }
+
   return (
     <div className="flip-card">
       <div className="flip-card-inner">
@@ -118,7 +138,12 @@ function Card({
           </Row>
           <Row className="button_row">
             <Col xs={6} md={6} lg={6}>
-              <button>
+              <button
+                onClick={() => {
+                  searchWeek({ lon, lat });
+                  handleShow();
+                }}
+              >
                 <span className="circle" aria-hidden="true">
                   <span className="arrow_icon"></span>
                 </span>
@@ -142,6 +167,12 @@ function Card({
           </Row>
         </div>
       </div>
+      <Modal show={detailed} onHide={handleClose} size="lg" centered>
+        <Modal.Body>
+          <DetailedCard week={week} />
+        </Modal.Body>
+        <Modal.Header closeButton></Modal.Header>
+      </Modal>
     </div>
   );
 }

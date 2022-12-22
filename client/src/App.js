@@ -17,6 +17,7 @@ function App() {
   useEffect(() => {
     window.localStorage.setItem('My cities', JSON.stringify(cities));
   }, [cities]);
+
   function onSearch(ciudad) {
     fetch(
       `http://api.openweathermap.org/data/2.5/weather?q=${ciudad}&appid=${apiKey}&units=metric`
