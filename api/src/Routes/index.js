@@ -1,20 +1,21 @@
 const { Router } = require('express');
 const router = Router();
 
-// const Comment = require('../Db/Schema/comment.js');
-// const Like = require('../Db/Schema/like.js');
-
-const {
-  getMoviesByIdApi,
-  getTrailerMovie,
-} = require('../controllers API/detailedMovie.js');
-
-// router.use('/payment', paymenRoutes);
+const { getCityWeather } = require('../Controllers API/api_weather.js');
 
 // ROUTES:
+// Get city weather from API by name query:
+router.get('/weather', async (req, res) => {
+  const { city_name } = req.query;
+  try {
+    let weather_city = await getCityWeather(city_name);
+    res.json(weather_city);
+  } catch (error) {
+    return res.status(204).send({ Error: error.message });
+  }
+});
 
-// Get movie from API by ID with trailer:
-// router.get('/movies/:id', async (req, res) => {
+// router.get('/weather/:id', async (req, res) => {
 //   try {
 //     const { id } = req.params;
 //     let movieDetail = await getMoviesByIdApi(id);

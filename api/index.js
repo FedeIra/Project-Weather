@@ -1,7 +1,7 @@
 const server = require('./src/app.js');
 require('dotenv').config();
 
-// const PORT = process.env.PORT;
+const PORT = process.env.PORT;
 
 // database.on('error', (error) => {
 //   console.log(error);
