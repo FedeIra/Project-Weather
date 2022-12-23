@@ -9,6 +9,7 @@ const SearchBar = ({ onSearch }) => {
   const handleSearch = (e) => {
     e.preventDefault();
     onSearch(search);
+    document.getElementById('input_search').value = '';
   };
 
   return (
@@ -37,11 +38,13 @@ const SearchBar = ({ onSearch }) => {
             <Input
               type="text"
               placeholder="Search..."
+              id="input_search"
               _placeholder={{
                 color: 'white',
               }}
               color={'white'}
               bg={'transparent'}
+              s
               padding={'12px'}
               paddingLeft={'40px'}
               onChange={(e) => setSearch(e.target.value)}
