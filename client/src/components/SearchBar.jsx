@@ -1,13 +1,17 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { SearchIcon } from '@chakra-ui/icons';
 import { Input, InputGroup, InputLeftElement } from '@chakra-ui/input';
 import { Box, Flex } from '@chakra-ui/layout';
+// import { getClimate } from '../actions/index.js';
 
 const SearchBar = ({ onSearch }) => {
   const [search, setSearch] = useState('');
+  // const dispatch = useDispatch();
 
   const handleSearch = (e) => {
     e.preventDefault();
+    // dispatch(getClimate(search));
     onSearch(search);
     document.getElementById('input_search').value = '';
   };

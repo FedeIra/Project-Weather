@@ -1,56 +1,35 @@
 const { Router } = require('express');
 const router = Router();
 
-const { getCityWeather } = require('../Controllers API/api_weather.js');
+const {
+  getCityWeather,
+  getWeekCityWeather,
+} = require('../Controllers API/api_weather.js');
 
 // ROUTES:
+
 // Get city weather from API by name query:
 router.get('/weather', async (req, res) => {
   const { city_name } = req.query;
   try {
-    let weather_city = await getCityWeather(city_name);
-    res.json(weather_city);
+    const climate = await getCityWeather(city_name);
+    res.json(climate);
   } catch (error) {
-    return res.status(204).send({ Error: error.message });
+    res.status(404).send(error);
   }
 });
 
-// router.get('/weather/:id', async (req, res) => {
-//   try {
-//     const { id } = req.params;
-//     let movieDetail = await getMoviesByIdApi(id);
+// Get city week weather from API by lat and lon:
+router.get('/weather/week', async (req, res) => {
+  const { lat, lon } = req.query;
 
-//     if (movieDetail.hasOwnProperty('json')) {
-//       return res.json(movieDetail.data);
-//     }
-
-//     const trailer = await getTrailerMovie(id);
-
-//     movieDetail = {
-//       ...movieDetail,
-//       trailer,
-//     };
-//     res.send(movieDetail);
-//   } catch (error) {
-//     return res.status(204).send({ Error: error.message });
-//   }
-// });
-
-// Get TV series detail from JSON:
-// router.get('/tv/:id', async (req, res) => {
-//   try {
-//     const { id } = req.params;
-//     let detail = await getDetailTVJSON(id);
-//     let trailer = await getTrailerSerie(detail.title);
-
-//     let TVSeriesDetail = {
-//       ...detail,
-//       trailer,
-//     };
-//     res.send(TVSeriesDetail);
-//   } catch (error) {
-//     return res.status(204).send({ Error: error.message });
-//   }
-// });
+  console.log(lat, lon);
+  try {
+    const climate_week = await getWeekCityWeather(lat, lon);
+    res.json(climate_week);
+  } catch (error) {
+    res.status(404).send(error);
+  }
+});
 
 module.exports = router;

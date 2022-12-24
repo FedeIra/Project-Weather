@@ -3,6 +3,8 @@ import '../hoja-de-estilos/Card.css';
 import { Container, Row, Col, Modal } from 'react-bootstrap';
 import * as images from '../Assets/climate/climate_images.js';
 import DetailedCard from './DetailedCard.jsx';
+import { useDispatch, useSelector } from 'react-redux';
+import { getWeekClimate } from '../actions/index.js';
 
 function Card({
   temp,
@@ -20,23 +22,27 @@ function Card({
   pressure,
 }) {
   const [detailed, setDetailed] = useState(false);
-  const [week, setWeek] = useState([]);
-  let apiKey = '4ae2636d8dfbdc3044bede63951a019b';
+  // const [week, setWeek] = useState([]);
+  const dispatch = useDispatch();
+
+  const week = useSelector((state) => state.week_weather);
 
   const handleClose = () => setDetailed(false);
   const handleShow = () => setDetailed(true);
 
-  function searchWeek({ lon, lat }) {
-    fetch(
-      `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}`
-    )
-      .then((r) => r.json())
-      .then((recurso) => {
-        const detailedWeek = {
-          first_day: recurso.list[0].main.temp,
-        };
-        setWeek(detailedWeek);
-      });
+  function searchWeek(lon, lat) {
+    console.log('lon', lon);
+    dispatch(getWeekClimate(lon, lat));
+    // fetch(
+    //   `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}`
+    // )
+    //   .then((r) => r.json())
+    //   .then((recurso) => {
+    //     const detailedWeek = {
+    //       first_day: recurso.list[0].main.temp,
+    //     };
+    //     setWeek(detailedWeek);
+    //   });
   }
 
   return (
