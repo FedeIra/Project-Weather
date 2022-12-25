@@ -38,32 +38,69 @@ const getWeekCityWeather = async (lat, lon) => {
   );
 
   const climateWeek = {
-    temp: Math.round(apiResponse.data.list[0].main.temp),
+    four_days: [
+      {
+        day: new Date(apiResponse.data.list[0].dt_txt).toLocaleString('en-US', {
+          weekday: 'long',
+        }),
+        temp: Math.round(apiResponse.data.list[0].main.temp - 273.15),
+
+        icon:
+          'http://openweathermap.org/img/w/' +
+          apiResponse.data.list[0].weather[0].icon +
+          '.png',
+      },
+      {
+        day: new Date(apiResponse.data.list[8].dt_txt).toLocaleString('en-US', {
+          weekday: 'long',
+        }),
+        temp: Math.round(apiResponse.data.list[8].main.temp - 273.15),
+
+        icon:
+          'http://openweathermap.org/img/w/' +
+          apiResponse.data.list[8].weather[0].icon +
+          '.png',
+      },
+      {
+        day: new Date(apiResponse.data.list[16].dt_txt).toLocaleString(
+          'en-US',
+          { weekday: 'long' }
+        ),
+        temp: Math.round(apiResponse.data.list[16].main.temp - 273.15),
+
+        icon:
+          'http://openweathermap.org/img/w/' +
+          apiResponse.data.list[16].weather[0].icon +
+          '.png',
+      },
+      {
+        day: new Date(apiResponse.data.list[24].dt_txt).toLocaleString(
+          'en-US',
+          { weekday: 'long' }
+        ),
+        temp: Math.round(apiResponse.data.list[24].main.temp - 273.15),
+
+        icon:
+          'http://openweathermap.org/img/w/' +
+          apiResponse.data.list[24].weather[0].icon +
+          '.png',
+      },
+      {
+        day: new Date(apiResponse.data.list[32].dt_txt).toLocaleString(
+          'en-US',
+          { weekday: 'long' }
+        ),
+        temp: Math.round(apiResponse.data.list[32].main.temp - 273.15),
+
+        icon:
+          'http://openweathermap.org/img/w/' +
+          apiResponse.data.list[32].weather[0].icon +
+          '.png',
+      },
+    ],
   };
 
-  console.log(climateWeek);
-
   return climateWeek;
-
-  // const apiResponseWeek = apiResponse.data.list[0].main.temp;
-
-  // const climateWeek = {
-  //   temp: Math.round(apiResponse.data.main.temp),
-  //   min: Math.round(apiResponse.data.main.temp_min),
-  //   max: Math.round(apiResponse.data.main.temp_max),
-  //   img: apiResponse.data.weather[0].icon,
-  //   id: apiResponse.data.id,
-  //   name: apiResponse.data.name,
-  //   weather: apiResponse.data.weather[0].main,
-  //   humidity: apiResponse.data.main.humidity,
-  //   lon: apiResponse.data.coord.lon,
-  //   lat: apiResponse.data.coord.lat,
-  //   description: apiResponse.data.weather[0].description,
-  //   wind: apiResponse.data.wind.speed,
-  //   pressure: apiResponse.data.main.pressure,
-  // };
-
-  // return climateWeek;
 };
 
 module.exports = {

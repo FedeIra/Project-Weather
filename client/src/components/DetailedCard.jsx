@@ -1,29 +1,31 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
+import '../hoja-de-estilos/DetailedCard.css';
 
 const DetailedCard = ({ week }) => {
   return (
-    <div>
-      {/* make one column per day for 4 days: */}
-      <Container>
-        <Row>
-          <Col>
-            <p>Day 1</p>
-            {/* <p>{week.first_day}</p> */}
+    <div className="detailed_card">
+      <Container className="container_detail">
+        <Row className="row">
+          <Col className="columns">
+            <h4>{week.four_days[1].day}</h4>
+            <img src={week.four_days[1].icon} alt="icono del clima" />
+            <h5>{`${week.four_days[1].temp}°C`}</h5>
           </Col>
-          {/* divider: */}
-
-          <Col>
-            <p>Day 2</p>
-            {/* <p>{week.second_day}</p> */}
+          <Col className="columns">
+            <h4>{week.four_days[2].day}</h4>
+            <img src={week.four_days[2].icon} alt="icono del clima" />
+            <h5>{`${week.four_days[2].temp}°C`}</h5>
           </Col>
-          <Col>
-            <p>Day 3</p>
-            {/* <p>{week.third_day}</p> */}
+          <Col className="columns">
+            <h4>{week.four_days[3].day}</h4>
+            <img src={week.four_days[3].icon} alt="icono del clima" />
+            <h5>{`${week.four_days[3].temp}°C`}</h5>
           </Col>
-          <Col>
-            <p>Day 4</p>
-            {/* <p>{week.fourth_day}</p> */}
+          <Col className="last_column">
+            <h4>{week.four_days[4].day}</h4>
+            <img src={week.four_days[4].icon} alt="icono del clima" />
+            <h5>{`${week.four_days[4].temp}°C`}</h5>
           </Col>
         </Row>
       </Container>

@@ -30,20 +30,9 @@ function Card({
   const handleClose = () => setDetailed(false);
   const handleShow = () => setDetailed(true);
 
-  function searchWeek(lon, lat) {
-    console.log('lon', lon);
-    dispatch(getWeekClimate(lon, lat));
-    // fetch(
-    //   `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}`
-    // )
-    //   .then((r) => r.json())
-    //   .then((recurso) => {
-    //     const detailedWeek = {
-    //       first_day: recurso.list[0].main.temp,
-    //     };
-    //     setWeek(detailedWeek);
-    //   });
-  }
+  const searchWeek = ({ lon, lat }) => {
+    dispatch(getWeekClimate({ lon, lat }));
+  };
 
   return (
     <div className="flip-card">
@@ -174,10 +163,19 @@ function Card({
         </div>
       </div>
       <Modal show={detailed} onHide={handleClose} size="lg" centered>
-        <Modal.Body>
+        <Modal.Body
+          style={{
+            backgroundColor: '#f5f5f5',
+          }}
+        >
           <DetailedCard week={week} />
         </Modal.Body>
-        <Modal.Header closeButton></Modal.Header>
+        <Modal.Header
+          closeButton
+          style={{
+            backgroundColor: '#f5f5f5',
+          }}
+        ></Modal.Header>
       </Modal>
     </div>
   );

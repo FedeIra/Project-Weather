@@ -52,12 +52,15 @@ export const savedCitiesLocalStorage = (cities) => {
 };
 
 // GET CITY WEEK WEATHER CLIMATE:
-export const getWeekClimate = (lon, lat) => {
+export const getWeekClimate = ({ lon, lat }) => {
   return async function (dispatch) {
     try {
+      const weather_week = await axios.get(
+        `/weather/week?lon=${lon}&lat=${lat}`
+      );
       return dispatch({
         type: GET_WEATHER_WEEK_CLIMATE,
-        payload: week_weather.data,
+        payload: weather_week.data,
       });
     } catch (error) {
       alert('Apologies. We encountered an error. Please try again.');

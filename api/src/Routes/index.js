@@ -22,8 +22,6 @@ router.get('/weather', async (req, res) => {
 // Get city week weather from API by lat and lon:
 router.get('/weather/week', async (req, res) => {
   const { lat, lon } = req.query;
-
-  console.log(lat, lon);
   try {
     const climate_week = await getWeekCityWeather(lat, lon);
     res.json(climate_week);
