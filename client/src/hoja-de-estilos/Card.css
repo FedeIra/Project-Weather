@@ -44,12 +44,12 @@
 }
 
 .flip-card-front {
-  background-color: rgba(225, 218, 218, 0.5);
-  color: #ffffff;
+  background-color: rgb(255, 254, 254);
+  color: #0c0c0c;
 }
 
 .close_button {
-  color: #ffffff;
+  color: #5b7685;
   cursor: pointer;
   margin-bottom: 20px;
   padding: 3%;
@@ -61,8 +61,8 @@
 }
 
 .flip-card-back {
-  background-color: rgba(225, 218, 218, 0.5);
-  color: #ffffff;
+  background-color: rgb(255, 254, 254);
+  color: #0c0c0c;
   transform: rotateY(180deg);
   padding-top: 10%;
 }
@@ -143,7 +143,7 @@ button .arrow_icon {
   top: 0;
   bottom: 0;
   margin: auto;
-  background: #fff;
+  background: rgb(249, 249, 249);
   transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
   left: 0.625rem;
   width: 1.125rem;
@@ -169,7 +169,7 @@ button .button_text {
   inset: 0;
   padding: 0.75rem 0;
   margin: 0 0 0 1.85rem;
-  color: #fff;
+  color: rgb(254, 254, 254);
   font-size: 1rem;
   line-height: 1.5;
   letter-spacing: 1px;
@@ -180,7 +180,7 @@ button:hover .circle {
 }
 
 button:hover .arrow_icon {
-  background: #fff;
+  background: rgb(247, 247, 247);
   transform: translate(1rem, 0);
 }
 

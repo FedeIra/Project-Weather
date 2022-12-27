@@ -1,5 +1,5 @@
 .navbar {
-  box-shadow: inset 0px 0px 400px 110px rgba(0, 0, 0, 0.6);
+  box-shadow: inset 100px 100px 400px 110px rgba(0, 0, 0, 0.2);
   height: 100px;
   margin-bottom: 50px;
 }

@@ -8,6 +8,11 @@ const DetailedCard = ({ week }) => {
       <Container className="container_detail">
         <Row className="row">
           <Col className="columns">
+            <h4>{week.four_days[0].day}</h4>
+            <img src={week.four_days[0].icon} alt="icono del clima" />
+            <h5>{`${week.four_days[0].temp}°C`}</h5>
+          </Col>
+          <Col className="columns">
             <h4>{week.four_days[1].day}</h4>
             <img src={week.four_days[1].icon} alt="icono del clima" />
             <h5>{`${week.four_days[1].temp}°C`}</h5>

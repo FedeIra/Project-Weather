@@ -25,6 +25,7 @@ router.get('/weather/week', async (req, res) => {
   try {
     const climate_week = await getWeekCityWeather(lat, lon);
     res.json(climate_week);
+    console.log(`CLIMATE WEEK ${climate_week}`);
   } catch (error) {
     res.status(404).send(error);
   }

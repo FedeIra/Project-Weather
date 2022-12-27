@@ -162,20 +162,19 @@ function Card({
           </Row>
         </div>
       </div>
-      <Modal show={detailed} onHide={handleClose} size="lg" centered>
-        <Modal.Body
-          style={{
-            backgroundColor: '#f5f5f5',
-          }}
-        >
+      <Modal
+        show={detailed}
+        onHide={handleClose}
+        size="lg"
+        centered
+        style={{
+          backgroundColor: 'rgba(255, 255, 255, 0.1)',
+        }}
+      >
+        <Modal.Body>
           <DetailedCard week={week} />
         </Modal.Body>
-        <Modal.Header
-          closeButton
-          style={{
-            backgroundColor: '#f5f5f5',
-          }}
-        ></Modal.Header>
+        <Modal.Header closeButton></Modal.Header>
       </Modal>
     </div>
   );
