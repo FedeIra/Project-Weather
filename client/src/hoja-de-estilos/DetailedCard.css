@@ -25,3 +25,17 @@
   flex-direction: column;
   align-items: center;
 }
+
+@media screen and (max-width: 991px) {
+  .row {
+    flex-direction: column;
+    border: none;
+  }
+  .columns {
+    border: none;
+    border-bottom: 2px solid rgb(49, 49, 49);
+  }
+  .last_column {
+    border: none;
+  }
+}

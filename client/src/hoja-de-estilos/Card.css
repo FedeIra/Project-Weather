@@ -169,10 +169,11 @@ button .button_text {
   inset: 0;
   padding: 0.75rem 0;
   margin: 0 0 0 1.85rem;
-  color: rgb(254, 254, 254);
+  color: #5b7685;
   font-size: 1rem;
   line-height: 1.5;
   letter-spacing: 1px;
+  font-weight: 700;
 }
 
 button:hover .circle {
@@ -182,6 +183,10 @@ button:hover .circle {
 button:hover .arrow_icon {
   background: rgb(247, 247, 247);
   transform: translate(1rem, 0);
+}
+
+button:hover .button_text {
+  color: #fff;
 }
 
 /* Modal for detail of cards: */
