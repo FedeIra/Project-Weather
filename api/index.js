@@ -1,14 +1,7 @@
 const server = require('./src/app.js');
 require('dotenv').config();
 
-const PORT = process.env.PORT;
-
-// database.on('error', (error) => {
-//   console.log(error);
-// });
-// database.once('connected', () => {
-//   console.log('Database connected!');
-// });
+const PORT = process.env.PORT || 3001;
 
 server.listen(PORT, () => {
   console.log(`Server connected on port: ${PORT}`);

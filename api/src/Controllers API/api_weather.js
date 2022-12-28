@@ -5,7 +5,6 @@ const { YOUR_API_KEY } = process.env;
 
 // Get city weather from API by name by query:
 const getCityWeather = async (city_name) => {
-  console.log(YOUR_API_KEY);
   const apiResponse = await axios.get(
     `http://api.openweathermap.org/data/2.5/weather?q=${city_name}&appid=${YOUR_API_KEY}&units=metric`
   );
