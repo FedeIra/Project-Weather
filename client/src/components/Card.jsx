@@ -22,7 +22,6 @@ function Card({
   pressure,
 }) {
   const [detailed, setDetailed] = useState(false);
-  // const [week, setWeek] = useState([]);
   const dispatch = useDispatch();
 
   const week = useSelector((state) => state.week_weather);
@@ -31,7 +30,9 @@ function Card({
   const handleShow = () => setDetailed(true);
 
   const searchWeek = ({ lon, lat }) => {
-    dispatch(getWeekClimate({ lon, lat }));
+    dispatch(getWeekClimate({ lon, lat })).then(() => {
+      handleShow();
+    });
   };
 
   return (
@@ -136,7 +137,6 @@ function Card({
               <button
                 onClick={() => {
                   searchWeek({ lon, lat });
-                  handleShow();
                 }}
               >
                 <span className="circle" aria-hidden="true">

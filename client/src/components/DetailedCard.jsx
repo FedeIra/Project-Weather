@@ -1,8 +1,11 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import '../hoja-de-estilos/DetailedCard.css';
+import { useSelector } from 'react-redux';
 
-const DetailedCard = ({ week }) => {
+const DetailedCard = () => {
+  const week = useSelector((state) => state.week_weather);
+
   return (
     <div className="detailed_card">
       <Container className="container_detail">

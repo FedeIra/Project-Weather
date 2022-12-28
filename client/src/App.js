@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './App.css';
 import Cards from './components/Cards.jsx';
 import Nav from './components/Nav.jsx';
@@ -7,7 +7,6 @@ import {
   getClimate,
   eliminateCity,
   dragAndDropCities,
-  savedCitiesLocalStorage,
 } from './actions/index.js';
 
 function App() {
@@ -15,24 +14,8 @@ function App() {
 
   const cities_weather = useSelector((state) => state.cities_weather);
 
-  // useEffect(() => {
-  //   const citiesSaved = JSON.parse(window.localStorage.getItem('My cities'));
-  //   if (citiesSaved) {
-  //     savedCitiesLocalStorage(citiesSaved);
-  //   }
-  // }, []);
-
-  // useEffect(() => {
-  //   window.localStorage.setItem('My cities', JSON.stringify(cities_weather));
-  // }, [cities_weather]);
-
   function onSearch(ciudad) {
-    /* if city is already on cities_weather theb alert otherwise dispatch: */
-    if (
-      cities_weather.some(
-        (city /* uppercase first letter */) => city.name === ciudad
-      )
-    ) {
+    if (cities_weather.some((city) => city.name === ciudad)) {
       alert('City already added');
     }
     dispatch(getClimate(ciudad));
