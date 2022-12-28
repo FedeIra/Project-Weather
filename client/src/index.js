@@ -4,7 +4,6 @@ import './index.css';
 import App from './App';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-// TODO: deploy (down):
 import { store } from './store/index.js';
 import { persistor } from './store/index.js';
 import { PersistGate } from 'redux-persist/integration/react';
@@ -15,16 +14,15 @@ import axios from 'axios';
 // dotenv.config();
 
 axios.defaults.baseURL =
-  // `https://videogames-web-production.up.railway.app/` ||
+  `https://project-weather-production.up.railway.app/` ||
   'http://localhost:3001';
-// TODO: deploy (up)
 
 const rootElement = document.getElementById('root');
 const root = ReactDOM.createRoot(rootElement);
 
 root.render(
   <Provider store={store}>
-    <PersistGate /* loading={null} */ persistor={persistor}>
+    <PersistGate persistor={persistor}>
       <App />
     </PersistGate>
   </Provider>
