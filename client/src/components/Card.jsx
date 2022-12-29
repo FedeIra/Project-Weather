@@ -5,6 +5,7 @@ import * as images from '../Assets/climate/climate_images.js';
 import DetailedCard from './DetailedCard.jsx';
 import { useDispatch, useSelector } from 'react-redux';
 import { getWeekClimate } from '../actions/index.js';
+import Loader from './Loader.jsx';
 
 function Card({
   temp,
@@ -22,6 +23,8 @@ function Card({
   pressure,
 }) {
   const [detailed, setDetailed] = useState(false);
+  const [loading, setLoading] = useState(false);
+
   const dispatch = useDispatch();
 
   const week = useSelector((state) => state.week_weather);
@@ -30,12 +33,16 @@ function Card({
   const handleShow = () => setDetailed(true);
 
   const searchWeek = ({ lon, lat }) => {
+    setLoading(true);
     dispatch(getWeekClimate({ lon, lat })).then(() => {
+      setLoading(false);
       handleShow();
     });
   };
 
-  return (
+  return loading ? (
+    <Loader />
+  ) : (
     <div className="flip-card">
       <div className="flip-card-inner">
         <div className="flip-card-front">
@@ -92,7 +99,7 @@ function Card({
           </Container>
         </div>
         <div className="flip-card-back">
-          <Row xs={2} md={2} lg={2}>
+          <Row className="row_back_first">
             <Col xs={7} md={7} lg={7}>
               <Container className="container.back">
                 <Row xs={1} md={1} lg={1}>
@@ -126,9 +133,7 @@ function Card({
               <img
                 src={`http://openweathermap.org/img/wn/${img}@2x.png`}
                 alt={'image_weather'}
-                style={{
-                  paddingRight: '40px',
-                }}
+                className="image_back"
               />
             </Col>
           </Row>
@@ -152,7 +157,7 @@ function Card({
                   width="40"
                   height="40"
                   fill="currentColor"
-                  className="bi bi-trash3-fill"
+                  className="close_icon"
                   viewBox="0 0 16 16"
                 >
                   <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z" />
