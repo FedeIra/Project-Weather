@@ -81,7 +81,7 @@ function Card({
                   ? images.snowy
                   : description === 'mist'
                   ? images.misty
-                  : `http://openweathermap.org/img/wn/${img}@2x.png`
+                  : `https://openweathermap.org/img/wn/${img}@2x.png`
               }
               alt={'image_weather'}
               style={{
@@ -131,7 +131,7 @@ function Card({
             </Col>
             <Col xs={1} md={1} lg={1}>
               <img
-                src={`http://openweathermap.org/img/wn/${img}@2x.png`}
+                src={`https://openweathermap.org/img/wn/${img}@2x.png`}
                 alt={'image_weather'}
                 className="image_back"
               />
@@ -153,7 +153,7 @@ function Card({
             <Col xs={6} md={6} lg={6}>
               <button className="close_button" onClick={onClose}>
                 <svg
-                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns="https://www.w3.org/2000/svg"
                   width="40"
                   height="40"
                   fill="currentColor"

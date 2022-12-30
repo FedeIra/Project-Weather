@@ -7,6 +7,7 @@ import {
   eliminateCity,
   dragAndDropCities,
 } from './actions/index.js';
+import Footer from './components/Footer.jsx';
 
 function App() {
   const dispatch = useDispatch();
@@ -40,6 +41,7 @@ function App() {
         onClose={onClose}
         handleOnDragEnd={handleOnDragEnd}
       />
+      <Footer />
     </div>
   );
 }
