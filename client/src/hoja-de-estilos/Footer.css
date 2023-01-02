@@ -1,8 +1,8 @@
 .footer {
   box-shadow: inset 100px 100px 400px 110px rgba(0, 0, 0, 0.6);
   color: #fff;
-  padding-top: 3.5rem;
-  padding-bottom: 3.5rem;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
   text-align: center;
   font-size: 15px;
   font-family: 'Roboto', sans-serif;
@@ -15,6 +15,11 @@
   margin-top: 5vh;
   position: relative;
   bottom: 0;
+}
+
+.copyright {
+  text-align: center;
+  font-size: 14px;
 }
 
 .icon_footer {

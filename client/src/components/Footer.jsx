@@ -42,6 +42,7 @@ const Footer = () => {
           className="icon_footer"
         />
       </a>
+      <p className="copyright"> © 2022 Federico Irarrazaval</p>
     </div>
   );
 };
