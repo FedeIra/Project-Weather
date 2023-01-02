@@ -6,7 +6,7 @@ const { YOUR_API_KEY } = process.env;
 // Get city weather from API by name by query:
 const getCityWeather = async (city_name) => {
   const apiResponse = await axios.get(
-    `http://api.openweathermap.org/data/2.5/weather?q=${city_name}&appid=${YOUR_API_KEY}&units=metric`
+    `https://api.openweathermap.org/data/2.5/weather?q=${city_name}&appid=${YOUR_API_KEY}&units=metric`
   );
 
   const climate = {
@@ -45,7 +45,7 @@ const getWeekCityWeather = async (lat, lon) => {
         temp: Math.round(apiResponse.data.list[0].main.temp - 273.15),
 
         icon:
-          'http://openweathermap.org/img/w/' +
+          'https://openweathermap.org/img/w/' +
           apiResponse.data.list[0].weather[0].icon +
           '.png',
       },
@@ -56,7 +56,7 @@ const getWeekCityWeather = async (lat, lon) => {
         temp: Math.round(apiResponse.data.list[8].main.temp - 273.15),
 
         icon:
-          'http://openweathermap.org/img/w/' +
+          'https://openweathermap.org/img/w/' +
           apiResponse.data.list[8].weather[0].icon +
           '.png',
       },
@@ -68,7 +68,7 @@ const getWeekCityWeather = async (lat, lon) => {
         temp: Math.round(apiResponse.data.list[16].main.temp - 273.15),
 
         icon:
-          'http://openweathermap.org/img/w/' +
+          'https://openweathermap.org/img/w/' +
           apiResponse.data.list[16].weather[0].icon +
           '.png',
       },
@@ -80,7 +80,7 @@ const getWeekCityWeather = async (lat, lon) => {
         temp: Math.round(apiResponse.data.list[24].main.temp - 273.15),
 
         icon:
-          'http://openweathermap.org/img/w/' +
+          'https://openweathermap.org/img/w/' +
           apiResponse.data.list[24].weather[0].icon +
           '.png',
       },
@@ -92,7 +92,7 @@ const getWeekCityWeather = async (lat, lon) => {
         temp: Math.round(apiResponse.data.list[32].main.temp - 273.15),
 
         icon:
-          'http://openweathermap.org/img/w/' +
+          'https://openweathermap.org/img/w/' +
           apiResponse.data.list[32].weather[0].icon +
           '.png',
       },
