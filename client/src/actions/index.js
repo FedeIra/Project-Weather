@@ -16,7 +16,7 @@ export const getClimate = (city_name) => {
         payload: weather.data,
       });
     } catch (error) {
-      alert('City not found');
+      throw new Error(error);
     }
   };
 };

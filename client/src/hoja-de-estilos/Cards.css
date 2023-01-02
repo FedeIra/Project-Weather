@@ -6,5 +6,11 @@
   margin-bottom: 50px;
   font-size: 16px;
   font-weight: 600;
-  height: 100%;
+  height: auto;
+}
+
+.div_empty {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

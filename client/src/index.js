@@ -14,7 +14,7 @@ import axios from 'axios';
 // dotenv.config();
 
 axios.defaults.baseURL =
-  `https://project-weather-production.up.railway.app/` ||
+  // `https://project-weather-production.up.railway.app/` ||
   'http://localhost:3001';
 
 const rootElement = document.getElementById('root');
